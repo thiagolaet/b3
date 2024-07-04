@@ -20,6 +20,8 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', cast=str)
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', cast=str)
 
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_PASSWORD', cast=str)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
