@@ -9,18 +9,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-18_)5+q%51+s#r7lhwle(42_+n3*h$4cu^2qq%%sa9c0ktl$7i'
+SECRET_KEY = config('SECRET_KEY', cast=str, default='')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST = config('EMAIL_HOST', cast=str)
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', cast=str)
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', cast=str)
+EMAIL_HOST = config('EMAIL_HOST', cast=str, default='')
+EMAIL_PORT = config('EMAIL_PORT', cast=int, default=587)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', cast=str, default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', cast=str, default='')
 
-DEFAULT_FROM_EMAIL = config('EMAIL_HOST_PASSWORD', cast=str)
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_PASSWORD', cast=str, default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
